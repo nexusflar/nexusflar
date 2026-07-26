@@ -29,7 +29,6 @@
             position: relative;
         }
 
-        /* Ambient Background Glows */
         .ambient-glow {
             position: absolute;
             width: 300px;
@@ -47,7 +46,6 @@
             100% { transform: translateY(-20px) scale(1.1); }
         }
 
-        /* Main Card */
         .profile-card {
             background: linear-gradient(145deg, #0f0f0f, #070707);
             border: 1px solid rgba(255, 255, 255, 0.03);
@@ -65,7 +63,6 @@
             z-index: 1;
         }
 
-        /* Avatar Box with Noticeable Sudden Pop/Grow Effect every 5 seconds */
         .avatar-container {
             margin-bottom: 25px;
             position: relative;
@@ -84,7 +81,6 @@
             88% { transform: scale(0.97); }
         }
 
-        /* Perfectly Balanced & Scaled Avatar Image */
         .avatar-img {
             width: 96px;
             height: 96px;
@@ -98,7 +94,6 @@
             transform: translateX(-50%);
         }
 
-        /* Lowered and Centered Decoration Asset Placement */
         .avatar-deco {
             position: absolute;
             top: 10px;
@@ -110,7 +105,6 @@
             object-fit: contain;
         }
 
-        /* Dashed Ring Structure Shared Axis Rotation Fix */
         .sphere-ring {
             position: absolute;
             top: 13px;
@@ -144,7 +138,6 @@
             margin-bottom: 25px;
         }
 
-        /* Tabs System */
         .tab-menu {
             display: flex;
             width: 100%;
@@ -190,7 +183,7 @@
             width: 100%;
             height: 100%;
             overflow-y: auto;
-            padding-right: 2px;
+            padding-right: 4px;
         }
 
         .tab-content::-webkit-scrollbar {
@@ -208,6 +201,11 @@
             animation: transitionEffect 0.25s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
 
+        #projects {
+            gap: 16px;
+            padding-bottom: 15px;
+        }
+
         @keyframes transitionEffect {
             from { opacity: 0; transform: translateY(4px); }
             to { opacity: 1; transform: translateY(0); }
@@ -221,17 +219,17 @@
             padding: 10px 5px 0 5px;
         }
 
-        /* Clickable Project Item Cards */
         .project-item {
             background: #0e0e0e;
             border: 1px solid rgba(255, 255, 255, 0.02);
             border-radius: 12px;
-            padding: 14px;
+            padding: 16px;
             text-align: left;
             cursor: pointer;
             position: relative;
             overflow: hidden;
             transition: all 0.2s ease;
+            flex-shrink: 0;
         }
         
         .project-item:hover {
@@ -242,17 +240,19 @@
         .project-thumbnail-bg {
             position: absolute;
             top: 0; right: 0; bottom: 0; left: 0;
-            opacity: 0.15;
-            filter: blur(5px);
+            opacity: 0.18;
+            filter: blur(4px);
             background-size: cover;
-            background-position: center;
+            background-position: center center;
+            background-repeat: no-repeat;
             z-index: 0;
             pointer-events: none;
-            transition: opacity 0.2s;
+            transition: opacity 0.2s, transform 0.3s ease;
         }
 
         .project-item:hover .project-thumbnail-bg {
-            opacity: 0.25;
+            opacity: 0.28;
+            transform: scale(1.05);
         }
 
         .project-info-block {
@@ -261,18 +261,18 @@
         }
 
         .project-name {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 700;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
             color: #ffffff;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .project-desc {
             font-size: 12px;
-            color: #888888;
+            color: #a0a0a0;
             line-height: 1.4;
         }
         
@@ -280,15 +280,14 @@
             display: inline-block;
             font-size: 9px;
             font-weight: 700;
-            background: rgba(255, 255, 255, 0.04);
-            padding: 2px 6px;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 3px 8px;
             border-radius: 4px;
-            margin-top: 8px;
-            color: #999999;
+            margin-top: 10px;
+            color: #cccccc;
             letter-spacing: 0.5px;
         }
 
-        /* Social Link Buttons */
         .socials-container {
             width: 100%;
             display: flex;
@@ -338,7 +337,6 @@
             flex-shrink: 0;
         }
 
-        /* --- IMMERSIVE INTERACTIVE MODAL OVERLAY --- */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -464,18 +462,20 @@
             position: relative;
             background: #111;
             border: 1px solid rgba(255, 255, 255, 0.03);
+            flex-shrink: 0;
         }
 
         .slide-img {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             object-fit: cover;
+            object-position: center;
             opacity: 0;
             transition: opacity 0.8s ease-in-out;
         }
 
         .slide-img.active {
-            opacity: 0.8;
+            opacity: 1;
         }
 
         .modal-section-title {
@@ -564,6 +564,18 @@
                     </div>
                 </div>
 
+                 <div class="project-item" onclick="openModal('modal-undergrnd')">
+                    <div class="project-thumbnail-bg" style="background-image: url('https://tr.rbxcdn.com/180DAY-d7e4784d8c533a74bb059d636d8025b7/768/432/Image/Webp/noFilter');"></div>
+                    <div class="project-info-block">
+                        <div class="project-name">
+                            <img src="https://tr.rbxcdn.com/180DAY-4ea0a660e01417db9b447e8b5371c84d/256/256/Image/Webp/noFilter" style="width:16px; height:16px; border-radius:3px; object-fit:cover;">
+                            THE UNDERGROUND
+                        </div>
+                        <div class="project-desc">This is my first big project about doors. In development for over 1 year!</div>
+                        <span class="project-tag">OWNER</span>
+                    </div>
+                </div>
+
                 <div class="project-item" onclick="openModal('modal-foundation')">
                     <div class="project-thumbnail-bg" style="background-image: url('https://tr.rbxcdn.com/180DAY-875158842b2268c585e7d8b8e96e547c/768/432/Image/Webp/noFilter');"></div>
                     <div class="project-info-block">
@@ -609,8 +621,9 @@
                         <div class="modal-role-badge">Owner</div>
                     </div>
                 </div>
-                <div class="modal-slideshow">
-                    <img src="https://tr.rbxcdn.com/180DAY-8ee273b5db802da163103c5cf240a109/768/432/Image/Webp/noFilter" class="slide-img active" style="opacity: 0.6; filter: blur(2px);">
+                <div class="modal-slideshow" id="seek-slideshow">
+                    <img src="https://tr.rbxcdn.com/180DAY-51537e9ae48384445aaf9344ad76708f/768/432/Image/Webp/noFilter" class="slide-img active">
+                    <img src="https://tr.rbxcdn.com/180DAY-8ee273b5db802da163103c5cf240a109/768/432/Image/Webp/noFilter" class="slide-img">
                 </div>
                 <p class="modal-text">
                     A custom practice game made by hand so you can try to survive and get good at Doors seek chases.
@@ -626,9 +639,51 @@
                         <div class="team-role">Lead Dev</div>
                     </div>
                     <div class="team-member">
-                        <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-49F01A98E1EA6C99760B9EA9E1A3240D-Png/150/150/AvatarHeadshot/Webp/noFilter" class="team-pfp">
+                        <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-7290CC11E31E090F648C8BEF5B1FBBD8-Png/150/150/AvatarHeadshot/Webp/noFilter" class="team-pfp">
                         <div class="team-name">Quantli</div>
                         <div class="team-role">Builder</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-undergrnd" class="modal-overlay" onclick="closeModalOnBg(event)">
+        <div class="modal-window">
+            <button class="modal-close-btn" onclick="closeModal('modal-undergrnd')">×</button>
+            <div class="modal-body">
+                <div class="modal-header-row">
+                    <img src="https://tr.rbxcdn.com/180DAY-4ea0a660e01417db9b447e8b5371c84d/256/256/Image/Webp/noFilter" class="modal-logo">
+                    <div>
+                        <div class="modal-title">THE UNDERGROUND</div>
+                        <div class="modal-role-badge">Owner</div>
+                    </div>
+                </div>
+                <div class="modal-slideshow">
+                    <img src="https://tr.rbxcdn.com/180DAY-d7e4784d8c533a74bb059d636d8025b7/768/432/Image/Webp/noFilter" class="slide-img active">
+                </div>
+                <p class="modal-text">
+                    A doors fangame about doors. Stay tuned.
+                </p>
+                <div class="modal-section-title">What do I do</div>
+                <p class="modal-text" style="color: #bbb;">Scripting, Building, Modeling, Animations. (Pretty much everything)</p>
+                
+                <div class="modal-section-title">Development Team</div>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-BCE6F52AF264D98FF9BD64DB7808D258-Png/150/150/AvatarHeadshot/Webp/noFilter" class="team-pfp">
+                        <div class="team-name">Nexusflar</div>
+                        <div class="team-role">Owner - Lead Dev</div>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-7290CC11E31E090F648C8BEF5B1FBBD8-Png/150/150/AvatarHeadshot/Webp/noFilter" class="team-pfp">
+                        <div class="team-name">Quantli</div>
+                        <div class="team-role">Builder - UI-Design</div>
+                    </div>
+                     <div class="team-member">
+                        <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-DC66686539C1D32943E0E8CD86BFA9C8-Png/150/150/AvatarHeadshot/Webp/noFilter" class="team-pfp">
+                        <div class="team-name">bbrownnn_naaw</div>
+                        <div class="team-role">UI-Design</div>
                     </div>
                 </div>
             </div>
@@ -720,16 +775,17 @@
 
         function openModal(modalId) {
             document.getElementById(modalId).classList.add('active');
+            
             if(modalId === 'modal-foundation') {
-                startSlideshow();
+                startSlideshow('foundation-slideshow');
+            } else if(modalId === 'modal-seek') {
+                startSlideshow('seek-slideshow');
             }
         }
 
         function closeModal(modalId) {
             document.getElementById(modalId).classList.remove('active');
-            if(modalId === 'modal-foundation') {
-                stopSlideshow();
-            }
+            stopSlideshow();
         }
 
         function closeModalOnBg(event) {
@@ -740,9 +796,15 @@
         }
 
         let slideInterval;
-        function startSlideshow() {
+        function startSlideshow(containerId) {
             stopSlideshow();
-            const slides = document.querySelectorAll('#foundation-slideshow .slide-img');
+            
+            const slideshowContainer = document.getElementById(containerId);
+            if (!slideshowContainer) return;
+            
+            const slides = slideshowContainer.querySelectorAll('.slide-img');
+            if (slides.length <= 1) return;
+            
             let currentSlide = 0;
             
             slideInterval = setInterval(() => {
