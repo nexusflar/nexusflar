@@ -219,6 +219,60 @@
             padding: 10px 5px 0 5px;
         }
 
+        .about-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.about-intro {
+    font-size: 13.5px;
+    color: #b0b0b0;
+    line-height: 1.6;
+}
+
+.about-highlight {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.about-skills-title {
+    font-size: 10px;
+    font-weight: 700;
+    color: #555555;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.skill-pill {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #d0d0d0;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.skill-pill:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
         .project-item {
             background: #0e0e0e;
             border: 1px solid rgba(255, 255, 255, 0.02);
@@ -543,18 +597,24 @@
         </div>
 
         <div class="window-frame">
-
             <div id="about" class="tab-content active">
-                <p class="description">
-                    Im Nexusflar and Ive been developing on Roblox for over <strong>4 years</strong> now. I make DOORS-related content.
-                    I'm a scripter, builder, modeler and animator.
-                    I'm usually working alone on my projects.
-                    I do not make commisions for now.
-                </p>
+                <div class="about-card">
+                    <p class="about-intro">
+                        I'm Nexusflar, Ive been developing on Roblox for over <span class="about-highlight">4 years</span>, I make DOORS-related content. I'm usually working alone on my projects most of the time.
+                    </p>
+        
+                    <div class="about-skills-title">I can do</div>
+                    <div class="skills-tags">
+                        <span class="skill-pill">Scripting</span>
+                        <span class="skill-pill">Building</span>
+                        <span class="skill-pill">Modeling</span>
+                        <span class="skill-pill">Animating</span>
+                    </div>
+                </div>
             </div>
 
             <div id="projects" class="tab-content">
-                
+
                 <div class="project-item" onclick="openModal('modal-seek')">
                     <div class="project-thumbnail-bg" style="background-image: url('https://tr.rbxcdn.com/180DAY-8ee273b5db802da163103c5cf240a109/768/432/Image/Webp/noFilter');"></div>
                     <div class="project-info-block">
@@ -588,6 +648,18 @@
                         </div>
                         <div class="project-desc">Co-owned remake of The Foundation Blue Build.</div>
                         <span class="project-tag">CO-OWNER</span>
+                    </div>
+                </div>
+
+                <div class="project-item" onclick="openModal('modal-spooky')">
+                    <div class="project-thumbnail-bg" style="background-image: url('https://i.ibb.co/KzpCbt5z/Capture-d-cran-2026-09-25-232627.png');"></div>
+                    <div class="project-info-block">
+                        <div class="project-name">
+                            <img src="https://i.ibb.co/jvwCvPtV/IMG-0812-2.png" style="width:16px; height:16px; border-radius:3px; object-fit:cover;">
+                            Spooky Realm
+                        </div>
+                    <div class="project-desc">A place with a strange outdoors look, but it's like it was on an halloween theme.</div>
+                    <span class="project-tag">CO OWNER</span>
                     </div>
                 </div>
 
@@ -748,6 +820,56 @@
         </div>
     </div>
 
+    <div id="modal-spooky" class="modal-overlay" onclick="closeModalOnBg(event)">
+    <div class="modal-window">
+        <button class="modal-close-btn" onclick="closeModal('modal-spooky')">×</button>
+        <div class="modal-body">
+            <div class="modal-header-row">
+                <img src="https://i.ibb.co/jvwCvPtV/IMG-0812-2.png" class="modal-logo">
+                <div>
+                    <div class="modal-title">Spooky Realm</div>
+                    <div class="modal-role-badge">Lead Dev</div>
+                </div>
+            </div>
+            <div class="modal-slideshow" id="spooky-slideshow">
+                <img src="https://i.ibb.co/C5t93FyB/image-5.png" class="slide-img">
+                <img src="https://i.ibb.co/5WTMRDRv/image-7.png" class="slide-img active">
+                <img src="https://i.ibb.co/W4RPBQVv/image-8.png" class="slide-img">
+            </div>
+            <p class="modal-text">
+                Spooky Realm experience.
+            </p>
+            <div class="modal-section-title">What do I do</div>
+            <p class="modal-text" style="color: #bbb;">Co Owner, Lead Development, Modeling, Additional Building.</p>
+            
+            <div class="modal-section-title">Development Team</div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-635FA3CF1DE5BE1E2AB1BBF58E775357-Png/150/150/AvatarHeadshot/Webp/noFilter" class="team-pfp">
+                    <div class="team-name">RazorFisher</div>
+                    <div class="team-role">Owner</div>
+                </div>
+                <div class="team-member">
+                    <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-BCE6F52AF264D98FF9BD64DB7808D258-Png/150/150/AvatarHeadshot/Webp/noFilter" class="team-pfp">
+                    <div class="team-name">Nexusflar</div>
+                    <div class="team-role">Co Owner</div>
+                </div>
+                 <div class="team-member">
+                    <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-17008F35D57F7F1C180C97267A754DF0-Png-Background-ProfileFrame/150/150/AvatarHeadshot/Webp/noFilter" class="team-pfp">
+                    <div class="team-name">Melwin</div>
+                    <div class="team-role">Lead Builder</div>
+                </div>
+                <div class="team-member">
+                    <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-7CB50E8DBA4ADDF2A3A7936F223CCB1C-Png-ProfileFrame/150/150/AvatarHeadshot/Webp/noFilter" class="team-pfp">
+                    <div class="team-name">bbrownnn_naaw</div>
+                    <div class="team-role">UI-Designer</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
     
 
     <script>
@@ -769,7 +891,10 @@
                 startSlideshow('foundation-slideshow');
             } else if(modalId === 'modal-seek') {
                 startSlideshow('seek-slideshow');
+            } else if(modalId === 'modal-spooky') {
+                startSlideshow('spooky-slideshow');
             }
+            
         }
 
         function closeModal(modalId) {
